@@ -26,7 +26,7 @@ $(function() {
         it('have URL', function() {
             allFeeds.forEach((feed) => {
                 expect(feed.url).toBeDefined();
-                expect(feed.url).not.toBe(0);
+                expect((feed.url).length).not.toBe(0);
             });
         });
 
@@ -36,7 +36,7 @@ $(function() {
         it('have name', function() {
             allFeeds.forEach((feed) => {
                 expect(feed.name).toBeDefined();
-                expect(feed.name).not.toBe(0);
+                expect((feed.name).length).not.toBe(0);
             });
         });
     });
@@ -70,11 +70,8 @@ $(function() {
     });
     
     //This suite is about initial entries
-    describe('Initial Entries', function() {
-        let feedsNoBeforeLoad, feeds;
-        
+    describe('Initial Entries', function() {      
         beforeEach(function(done) {
-            feedsNoBeforeLoad = $('.feed .entry').length;
             loadFeed(1, function() {
                 done();
             });
@@ -84,7 +81,7 @@ $(function() {
          * a single .entry element within the .feed container.
          */
         it('are loaded with loadFeed', function() {
-            expect($('.feed .entry').length).toBeGreaterThan(feedsNoBeforeLoad);
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
     });
 
